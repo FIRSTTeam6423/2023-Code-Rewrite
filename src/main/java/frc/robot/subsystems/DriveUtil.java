@@ -57,14 +57,6 @@ public class DriveUtil extends SubsystemBase {
   
    public SwerveDriveKinematics kinematics = new SwerveDriveKinematics(m_frontLeftLoc, m_frontRightLoc,
            m_backLeftLoc, m_backRightLoc);
-  
-   // QUESTION FROM ADITYA AND JULIEN: The drives for each wheel are set to true when moving, then therefore wheel pivot is true and abs_encoder documents
-   // that a wheel is moving by being set to true?
-   // this is the 2023 competition code.
-
-
-  
-
 
    // getPosition is just placeholder for getting distance with encoders even
    // though wpilib uses it as an example
