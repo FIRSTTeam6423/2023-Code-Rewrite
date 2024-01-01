@@ -8,6 +8,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -26,8 +27,15 @@ public class RobotContainer {
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
+  //
+  private static XboxController driver;
+
+  // For alliance
+  public static double allianceOrientation = 0; 
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    driver = new XboxController(Constants.XBOX_DRIVER);
     // Configure the trigger bindings
     configureBindings();
   }
@@ -59,5 +67,23 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     return Autos.exampleAuto(m_exampleSubsystem);
+  }
+
+
+  // Getters for driver input on xbox controller
+  public static double getDriverLeftXboxX(){
+    return driver.getLeftX();
+  }
+
+  public static double getDriverLeftXboxY(){
+    return driver.getLeftY();
+  }
+
+  public static double getDriverRightXboxX(){
+    return driver.getRightX();
+  }
+
+  public static double getDriverRightXboxY(){
+    return driver.getRightY();
   }
 }
